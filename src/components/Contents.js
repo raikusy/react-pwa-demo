@@ -63,9 +63,15 @@ class Contents extends Component {
             <Tab label="Two" />
             <Tab label="Three" />
           </Tabs>
-          {value === 0 && <PreCode>{`${JSON.stringify(tabOne)}`}</PreCode>}
-          {value === 1 && <PreCode>{`${JSON.stringify(tabTwo)}`}</PreCode>}
-          {value === 2 && <PreCode>{`${JSON.stringify(tabThree)}`}</PreCode>}
+          {value === 0 && (
+            <PreCode>{JSON.stringify(tabOne, null, '\t')}</PreCode>
+          )}
+          {value === 1 && (
+            <PreCode>{JSON.stringify(tabTwo, null, '\t')}</PreCode>
+          )}
+          {value === 2 && (
+            <PreCode>{JSON.stringify(tabThree, null, '\t')}</PreCode>
+          )}
         </Paper>
       </div>
     );

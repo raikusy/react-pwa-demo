@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Prism from 'prismjs';
 
-function PreCode(props) {
-  return (
-    <pre>
-      <code>{props.children}</code>
-    </pre>
-  );
+export default class PreCode extends Component {
+  componentDidMount() {
+    Prism.highlightAll();
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.children !== prevProps.children) {
+      Prism.highlightAll();
+    }
+  }
+  render() {
+    return (
+      <pre>
+        <code className="language-javascript">{this.props.children}</code>
+      </pre>
+    );
+  }
 }
-
-export default PreCode;

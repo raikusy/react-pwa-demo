@@ -2,10 +2,7 @@
   width: 80%;
   margin: 0 auto;
 }
-pre {
-  overflow-x: auto;
-  white-space: pre-wrap;
-}
+
 /* 
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
