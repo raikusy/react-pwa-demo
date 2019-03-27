@@ -4,8 +4,10 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import PreCode from './PreCode';
+import fetchData from '../utils/fetchData';
 
 const styles = theme => ({
   root: {
@@ -16,6 +18,14 @@ const styles = theme => ({
     ...theme.mixins.gutters(),
     paddingTop: 0,
     paddingBottom: theme.spacing.unit * 2
+  },
+  loading: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  progress: {
+    margin: theme.spacing.unit * 2
   }
 });
 
@@ -26,20 +36,21 @@ class Contents extends Component {
       value: 0,
       tabOne: {},
       tabTwo: {},
-      tabThree: {}
+      tabThree: {},
+      loading: false
     };
   }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-      .then(res => res.json())
-      .then(res => this.setState({ tabOne: res }));
-    fetch('https://jsonplaceholder.typicode.com/todos/2')
-      .then(res => res.json())
-      .then(res => this.setState({ tabTwo: res }));
-    fetch('https://jsonplaceholder.typicode.com/todos/3')
-      .then(res => res.json())
-      .then(res => this.setState({ tabThree: res }));
+    this.setState(prevState => ({ loading: !prevState.loading }));
+    fetchData('1').then(res => this.setState(prevState => ({ tabOne: res })));
+    fetchData('2').then(res => this.setState({ tabTwo: res }));
+    fetchData('3').then(res =>
+      this.setState(prevState => ({
+        loading: !prevState.loading,
+        tabThree: res
+      }))
+    );
   }
 
   handleChange = (event, value) => {
@@ -48,7 +59,7 @@ class Contents extends Component {
 
   render() {
     const { classes } = this.props;
-    const { value, tabOne, tabTwo, tabThree } = this.state;
+    const { value, tabOne, tabTwo, tabThree, loading } = this.state;
     return (
       <div className={classes.root}>
         <Paper className={classes.paper}>
@@ -63,13 +74,23 @@ class Contents extends Component {
             <Tab label="Two" />
             <Tab label="Three" />
           </Tabs>
-          {value === 0 && (
+          {loading && (
+            <PreCode>
+              <div className={classes.loading}>
+                <CircularProgress
+                  className={classes.progress}
+                  color="secondary"
+                />
+              </div>
+            </PreCode>
+          )}
+          {!loading && value === 0 && (
             <PreCode>{JSON.stringify(tabOne, null, '\t')}</PreCode>
           )}
-          {value === 1 && (
+          {!loading && value === 1 && (
             <PreCode>{JSON.stringify(tabTwo, null, '\t')}</PreCode>
           )}
-          {value === 2 && (
+          {!loading && value === 2 && (
             <PreCode>{JSON.stringify(tabThree, null, '\t')}</PreCode>
           )}
         </Paper>
