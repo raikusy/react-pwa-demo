@@ -24,13 +24,22 @@ class Contents extends Component {
     super(props);
     this.state = {
       value: 0,
-      json: {
-        userId: 1,
-        id: 1,
-        title: 'delectus aut autem',
-        completed: false
-      }
+      tabOne: {},
+      tabTwo: {},
+      tabThree: {}
     };
+  }
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(res => res.json())
+      .then(res => this.setState({ tabOne: res }));
+    fetch('https://jsonplaceholder.typicode.com/todos/2')
+      .then(res => res.json())
+      .then(res => this.setState({ tabTwo: res }));
+    fetch('https://jsonplaceholder.typicode.com/todos/3')
+      .then(res => res.json())
+      .then(res => this.setState({ tabThree: res }));
   }
 
   handleChange = (event, value) => {
@@ -39,7 +48,7 @@ class Contents extends Component {
 
   render() {
     const { classes } = this.props;
-    const { value, json } = this.state;
+    const { value, tabOne, tabTwo, tabThree } = this.state;
     return (
       <div className={classes.root}>
         <Paper className={classes.paper}>
@@ -54,9 +63,9 @@ class Contents extends Component {
             <Tab label="Two" />
             <Tab label="Three" />
           </Tabs>
-          {value === 0 && <PreCode>{`${JSON.stringify(json)}`}</PreCode>}
-          {value === 1 && <PreCode>{`${JSON.stringify(json)}`}</PreCode>}
-          {value === 2 && <PreCode>{`${JSON.stringify(json)}`}</PreCode>}
+          {value === 0 && <PreCode>{`${JSON.stringify(tabOne)}`}</PreCode>}
+          {value === 1 && <PreCode>{`${JSON.stringify(tabTwo)}`}</PreCode>}
+          {value === 2 && <PreCode>{`${JSON.stringify(tabThree)}`}</PreCode>}
         </Paper>
       </div>
     );
