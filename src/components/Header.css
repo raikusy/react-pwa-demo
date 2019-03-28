@@ -143,6 +143,9 @@
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .Header {
+    margin-bottom: 0;
+  }
   .sub-menu-left {
     display: none;
   }

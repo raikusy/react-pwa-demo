@@ -69,6 +69,7 @@ class Contents extends Component {
             indicatorColor="primary"
             textColor="primary"
             centered
+            variant="fullWidth"
           >
             <Tab label="One" />
             <Tab label="Two" />
