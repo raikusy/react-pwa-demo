@@ -30,16 +30,13 @@ const styles = theme => ({
 });
 
 class Contents extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: 0,
-      tabOne: {},
-      tabTwo: {},
-      tabThree: {},
-      loading: false
-    };
-  }
+  state = {
+    value: 0,
+    tabOne: {},
+    tabTwo: {},
+    tabThree: {},
+    loading: false
+  };
 
   componentDidMount() {
     this.setState(prevState => ({ loading: !prevState.loading }));

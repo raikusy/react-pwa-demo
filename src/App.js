@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import './App.css';
@@ -8,19 +8,18 @@ import Contents from './components/Contents';
 import Container from './components/Container';
 import Header from './components/Header';
 import Offline from './components/Offline';
-class App extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <CssBaseline />
-        <Header />
-        <Container>
-          <Offline />
-          <Contents />
-        </Container>
-      </React.Fragment>
-    );
-  }
+
+function App() {
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <Header />
+      <Container>
+        <Offline />
+        <Contents />
+      </Container>
+    </React.Fragment>
+  );
 }
 
 export default App;

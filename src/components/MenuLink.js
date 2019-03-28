@@ -1,20 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class MenuLink extends Component {
-  linkClick = e => {
-    e.preventDefault();
-  };
-  render() {
-    return (
-      <div className={this.props.className}>
-        <a
-          href={this.props.link}
-          className="menu-link"
-          onClick={this.linkClick}
-        >
-          {this.props.children}
-        </a>
-      </div>
-    );
-  }
+const linkClick = e => {
+  e.preventDefault();
+};
+export default function MenuLink(props) {
+  return (
+    <div className={props.className}>
+      <a href={props.link} className="menu-link" onClick={linkClick}>
+        {props.children}
+      </a>
+    </div>
+  );
 }
