@@ -2,6 +2,7 @@
   background-color: #4267b2;
   border-bottom: 1px solid #29487d;
   color: #fff;
+  margin-bottom: 1em;
 }
 
 .menu {
@@ -10,14 +11,14 @@
 }
 
 .sub-menu-left {
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .sub-menu-right,
 .page-menu,
 .action-menu,
 .settings-menu {
-  justify-content: end;
+  justify-content: flex-end;
   display: flex;
 }
 
@@ -43,9 +44,15 @@
   background-image: url(../icons.png);
   background-position: 0 -838px;
 }
+.friends-white {
+  background-position: 0 -863px;
+}
 
 .notification {
   background-image: url(../icons.png);
+  background-position: 0 -738px;
+}
+.notification-white {
   background-position: 0 -763px;
 }
 
@@ -53,18 +60,18 @@
   background-image: url(../icons.png);
   background-position: 0 -888px;
 }
+.messenger-white {
+  background-position: 0 -913px;
+}
 
 .help {
   background-image: url(../icons.png);
   background-position: 0 -938px;
 }
+.help-white {
+  background-position: 0 -963px;
+}
 .logout {
-  background-repeat: no-repeat;
-  background-repeat: no-repeat;
-  background-repeat: no-repeat;
-  background-repeat: no-repeat;
-  background-repeat: no-repeat;
-  background-repeat: no-repeat;
   background-image: url(../icons.png);
   background-position: 0 -788px;
 }
@@ -100,7 +107,7 @@
   top: 12px;
 }
 
-.page-menu a {
+.menu-link {
   background-color: transparent;
   color: inherit;
   display: inline-block;
@@ -116,7 +123,7 @@
   white-space: nowrap;
 }
 
-.page-menu a:hover {
+.menu-link:hover {
   background-color: #3b5da0;
 }
 
@@ -136,10 +143,62 @@
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-  .page-menu {
+  .sub-menu-left {
     display: none;
   }
-  .action-menu::before {
+  .divider::before {
     display: none;
+  }
+  .icon {
+    background: none;
+    text-indent: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    outline: none;
+    height: 24px;
+    width: auto;
+  }
+  .sub-menu-right {
+    flex-wrap: wrap;
+  }
+  .menu-link,
+  .icon-link {
+    background-color: transparent;
+    color: inherit;
+    display: inline-block;
+    font-size: 12px;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: bold;
+    height: auto !important;
+    line-height: 28px;
+    padding: 0 5px !important;
+    position: relative;
+    text-decoration: none;
+    vertical-align: top;
+    white-space: nowrap;
+  }
+  .menu-link:hover {
+    background-color: transparent !important;
+  }
+  .page-menu > div,
+  .action-menu > div,
+  .settings-menu > div {
+    margin: 7px 0 8px 0;
+    position: relative;
+  }
+  .sub-menu-right,
+  .page-menu,
+  .action-menu,
+  .settings-menu {
+    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .action-menu {
+    order: -2;
+  }
+  .settings-menu {
+    order: -1;
   }
 }

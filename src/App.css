@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+a:focus {
+  outline: none;
+}
 .App {
   width: 1012px;
   margin: 0 auto;
