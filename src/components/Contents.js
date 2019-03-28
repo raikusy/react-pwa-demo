@@ -43,12 +43,12 @@ class Contents extends Component {
 
   componentDidMount() {
     this.setState(prevState => ({ loading: !prevState.loading }));
-    fetchData('1').then(res => this.setState(prevState => ({ tabOne: res })));
+    fetchData('1').then(res => this.setState({ tabOne: res }));
     fetchData('2').then(res => this.setState({ tabTwo: res }));
     fetchData('3').then(res =>
       this.setState(prevState => ({
-        loading: !prevState.loading,
-        tabThree: res
+        tabThree: res,
+        loading: !prevState.loading
       }))
     );
   }
