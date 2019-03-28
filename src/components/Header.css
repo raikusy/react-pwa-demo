@@ -1,0 +1,145 @@
+.Header {
+  background-color: #4267b2;
+  border-bottom: 1px solid #29487d;
+  color: #fff;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sub-menu-left {
+  justify-content: start;
+}
+
+.sub-menu-right,
+.page-menu,
+.action-menu,
+.settings-menu {
+  justify-content: end;
+  display: flex;
+}
+
+.icon {
+  background-size: 26px 1295px;
+  background-repeat: no-repeat;
+  text-indent: -999px;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  outline: none;
+  height: 24px;
+  width: 24px;
+}
+
+.logo {
+  background-image: url(../icons.png);
+  background-position: 0 -413px;
+  margin: 7px 0;
+}
+
+.friends {
+  background-image: url(../icons.png);
+  background-position: 0 -838px;
+}
+
+.notification {
+  background-image: url(../icons.png);
+  background-position: 0 -763px;
+}
+
+.messenger {
+  background-image: url(../icons.png);
+  background-position: 0 -888px;
+}
+
+.help {
+  background-image: url(../icons.png);
+  background-position: 0 -938px;
+}
+.logout {
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-image: url(../icons.png);
+  background-position: 0 -788px;
+}
+.logout-white {
+  background-position: 0 -813px;
+}
+
+.page-menu {
+  display: flex;
+}
+
+.page-menu > div {
+  margin: 7px 0 8px 0;
+  position: relative;
+}
+.divider {
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  display: block;
+  height: 18px;
+  left: -1px;
+  position: absolute;
+  top: 6px;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.settings-menu.divider::before,
+.action-menu.divider::before {
+  top: 12px;
+}
+
+.page-menu a {
+  background-color: transparent;
+  color: inherit;
+  display: inline-block;
+  font-size: 12px;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: bold;
+  height: 27px;
+  line-height: 28px;
+  padding: 0 12px 1px;
+  position: relative;
+  text-decoration: none;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.page-menu a:hover {
+  background-color: #3b5da0;
+}
+
+.action-menu > div,
+.settings-menu > div {
+  margin: 5px 0 6px 0;
+}
+
+.action-menu > div > a,
+.settings-menu > div > a {
+  margin: 0 2px;
+  padding: 4px;
+  display: block;
+  outline: none;
+  position: relative;
+  text-decoration: none;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .page-menu {
+    display: none;
+  }
+  .action-menu::before {
+    display: none;
+  }
+}

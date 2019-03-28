@@ -1,6 +1,10 @@
+* {
+  box-sizing: border-box;
+}
 .App {
-  width: 80%;
+  width: 1012px;
   margin: 0 auto;
+  padding: 0;
 }
 
 /* 
@@ -10,7 +14,7 @@
 
 @media (min-width: 1281px) {
   .App {
-    width: 80%;
+    width: 1012px;
     margin: 0 auto;
   }
 }
@@ -22,8 +26,9 @@
 
 @media (min-width: 1025px) and (max-width: 1280px) {
   .App {
-    width: 80%;
+    width: 1012px;
     margin: 0 auto;
+    padding: 0 1em;
   }
 }
 
@@ -34,8 +39,9 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .App {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 1em;
   }
 }
 
@@ -46,8 +52,9 @@
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .App {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 1em;
   }
 }
 
@@ -60,6 +67,7 @@
   .App {
     width: 100%;
     margin: 0 auto;
+    padding: 0 0.2em;
   }
 }
 
@@ -72,5 +80,6 @@
   .App {
     width: 100%;
     margin: 0 auto;
+    padding: 0 0.2em;
   }
 }
